@@ -26,7 +26,7 @@ class Service(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=100, verbose_name="Project title")
     project_badge = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="projects")
+    image = models.ImageField(upload_to='media/project_img', default='media/project_img/default.jpg')
 
     def __str__(self):
         return self.title
@@ -36,7 +36,6 @@ class Project(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    subject = models.CharField(max_length=255)
     message = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)  
@@ -47,3 +46,4 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
